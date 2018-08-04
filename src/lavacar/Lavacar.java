@@ -17,7 +17,7 @@ public class Lavacar {
     public static void main(String[] args) {
         
         
-        //mostrar el login
+        
         Login n =new Login ();
         n.setVisible(true);
  
