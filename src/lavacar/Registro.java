@@ -75,7 +75,7 @@ public class Registro extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Cerrar");
+        jButton2.setText("Atras");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -265,7 +265,7 @@ public class Registro extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        System.exit(0);
+        dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jtfIdentificacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfIdentificacionActionPerformed
