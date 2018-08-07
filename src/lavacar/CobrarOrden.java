@@ -29,29 +29,37 @@ public class CobrarOrden  extends javax.swing.JFrame {
     }
      void mostrarDatos(String valor) {
         DefaultTableModel modelo = new DefaultTableModel();
-        modelo.addColumn("Numero_de_placa");
-        modelo.addColumn("tipo_vehiculo");
-        modelo.addColumn("id_cliente");
-        modelo.addColumn("nombe_cliente");
-        modelo.addColumn("telefono_cliente");
-        modelo.addColumn("correo_cliente");
-        modelo.addColumn("tipo_servicio");
-        modelo.addColumn("estado_orden");
+        modelo.addColumn("Numero_de_placa"); //0
+        modelo.addColumn("tipo_vehiculo"); //1
+        
+        modelo.addColumn("nombe_cliente");//3
+        
+        
+        modelo.addColumn("tipo_servicio");// 6
+        
         jTable1.setModel(modelo);
 
-        String datos[] = new String[8];
+        String datos[] = new String[7];
         String sql = "";
-        if (valor.equals("")) {
-            sql = "SELECT * FROM orden_de_trabajo";
-        } else {
-            sql = "SELECT * FROM orden_de_trabajo WHERE Numero_de_placa= '" + valor + "'";
-        }
+        if(valor.equals("")){
+                   // aca muestra todos los valores
+                   sql="SELECT * FROM orden_de_trabajo WHERE estado_orden = 'Activa'";
+               }else{
+                   // aqui solo muestra el buscado con WHERE
+                   // recordar si se puede hacer un swtch para poder buscar en toas las columnas
+                   sql = "SELECT * FROM orden_de_trabajo WHERE Numero_de_placa = '"+ valor +"'";
+               }
         try {
+            int j = 0;
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
                 for (int i = 0; i < datos.length; i++) {
-                    datos[i] = rs.getString(i + 1);
+                   
+                    if (i == 0 || i == 1 || i == 3 || i == 6){    
+                    datos[j] = rs.getString(i+1);
+                     j++;
+                    } 
                 }
                 modelo.addRow(datos);
             }

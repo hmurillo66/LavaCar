@@ -56,20 +56,18 @@ public class ListaDeOrdenes extends javax.swing.JFrame {
                modelo.addColumn("Telefono");
                modelo.addColumn("Correo");
                modelo.addColumn("Servicio");
+               modelo.addColumn("Estado");
                jtOrdenesDeTrabajo.setModel(modelo);
                // para poder almacenar los datos en la tabla
-               String datos[] = new String [7];
+               String datos[] = new String [8];
                
                // variable del nombre de la tabla
                String sql = "";
-               if(valor.equals("")){
-                   // aca muestra todos los valores
-                   sql="SELECT * FROM orden_de_trabajo WHERE estado_orden = 'Activa'";
-               }else{
-                   // aqui solo muestra el buscado con WHERE
-                   // recordar si se puede hacer un swtch para poder buscar en toas las columnas
-                   sql = "SELECT * FROM orden_de_trabajo WHERE Numero_de_placa = '"+ valor +"'";
-               }
+               if (valor.equals("")) {
+            sql = "SELECT * FROM orden_de_trabajo";
+        } else {
+            sql = "SELECT * FROM orden_de_trabajo WHERE Numero_de_placa= '" + valor + "'";
+        }
                
                 
                 try {
