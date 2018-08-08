@@ -5,6 +5,8 @@
  */
 package lavacar;
 
+import java.io.File;
+import java.net.URISyntaxException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -220,48 +222,41 @@ public class CobrarOrden  extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         int fila =jTable1.getSelectedRow();
         List lista = new ArrayList();
+        String placa = null;
         String tipo = null;
         String identificacion = null;
         String nombre=null;
         String telefono=null;
         String servicio=null;
         for (int i = fila; i >=0; i--) {
-//            lista.add(jTable1.getValueAt(i, 0).toString());
-//            lista.add(jTable1.getValueAt(i, 1).toString());
-//            lista.add(jTable1.getValueAt(i, 2).toString());
-//            lista.add(jTable1.getValueAt(i, 4).toString());
-//            lista.add(jTable1.getValueAt(i, 6).toString());
+           placa=jTable1.getValueAt(i, 0).toString();
            tipo=jTable1.getValueAt(i, 1).toString();
-           identificacion=jTable1.getValueAt(i, 2).toString();
-           nombre=jTable1.getValueAt(i, 3).toString();
-           telefono=jTable1.getValueAt(i, 4).toString();
-           servicio=jTable1.getValueAt(i, 6).toString();
+           //identificacion=jTable1.getValueAt(i, 2).toString();
+           nombre=jTable1.getValueAt(i, 2).toString();
+           //telefono=jTable1.getValueAt(i, 4).toString();
+           servicio=jTable1.getValueAt(i, 3).toString();
         }  
-        String paht="C:\\Users\\angie\\Desktop\\PROGRA 2\\Lavacar-_1_\\Lavacar (1)\\Lavacar\\src\\lavacar\\Factura.jasper";
-        JasperReport reporte;
-        try { 
-           reporte =(JasperReport)JRLoader.loadObject(paht);
+        try {
+            ClassLoader classLoader = getClass().getClassLoader();
+            File template = new File(classLoader.getResource("reportes/factura.jasper").toURI());
+            JasperReport reporte =(JasperReport)JRLoader.loadObject(template);
             Map parametro = new HashMap();
-                parametro.put("numero_placa", jTextField1.getText());          
+                parametro.put("numero_placa", placa);          
                 parametro.put("tipo",tipo);
-                parametro.put("identificacion",identificacion);
                 parametro.put("nombre",nombre);
-                parametro.put("telefono",telefono);
+                //parametro.put("telefono",telefono);
                 parametro.put("servicio",servicio);
             //agrgar los elementos
-            JasperPrint jprint= JasperFillManager.fillReport(paht, parametro, new JREmptyDataSource());
-            System.out.println(jprint.getOrientationValue());
+            JasperPrint jprint= JasperFillManager.fillReport(reporte, parametro, new JREmptyDataSource());
             //parte visualizacion  
             JasperViewer viewer= new JasperViewer(jprint,false);
             viewer.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-            viewer.setVisible(true);
-            
-             
-            
+            viewer.setVisible(true);               
         } catch (JRException ex) {
             Logger.getLogger(CobrarOrden.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (URISyntaxException ex) {
+            Logger.getLogger(CobrarOrden.class.getName()).log(Level.SEVERE, null, ex);
         }
-
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
