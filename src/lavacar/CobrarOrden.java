@@ -10,9 +10,23 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import static lavacar.MantenimientoUsuario.modelo;
+import net.sf.jasperreports.engine.JREmptyDataSource;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
+
 
 /**
  *
@@ -92,7 +106,7 @@ public class CobrarOrden  extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jButton1.setText("Cobrar");
+        jButton1.setText("Generar Factura");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -196,12 +210,51 @@ public class CobrarOrden  extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
-        try {
+        int fila =jTable1.getSelectedRow();
+        List lista = new ArrayList();
+        String tipo = null;
+        String identificacion = null;
+        String nombre=null;
+        String telefono=null;
+        String servicio=null;
+        for (int i = fila; i >=0; i--) {
+//            lista.add(jTable1.getValueAt(i, 0).toString());
+//            lista.add(jTable1.getValueAt(i, 1).toString());
+//            lista.add(jTable1.getValueAt(i, 2).toString());
+//            lista.add(jTable1.getValueAt(i, 4).toString());
+//            lista.add(jTable1.getValueAt(i, 6).toString());
+           tipo=jTable1.getValueAt(i, 1).toString();
+           identificacion=jTable1.getValueAt(i, 2).toString();
+           nombre=jTable1.getValueAt(i, 3).toString();
+           telefono=jTable1.getValueAt(i, 4).toString();
+           servicio=jTable1.getValueAt(i, 6).toString();
+        }  
+        String paht="C:\\Users\\angie\\Desktop\\PROGRA 2\\Lavacar-_1_\\Lavacar (1)\\Lavacar\\src\\lavacar\\Factura.jasper";
+        JasperReport reporte;
+        try { 
+           reporte =(JasperReport)JRLoader.loadObject(paht);
+            Map parametro = new HashMap();
+                parametro.put("numero_placa", jTextField1.getText());          
+                parametro.put("tipo",tipo);
+                parametro.put("identificacion",identificacion);
+                parametro.put("nombre",nombre);
+                parametro.put("telefono",telefono);
+                parametro.put("servicio",servicio);
+            //agrgar los elementos
+            JasperPrint jprint= JasperFillManager.fillReport(paht, parametro, new JREmptyDataSource());
+            System.out.println(jprint.getOrientationValue());
+            //parte visualizacion  
+            JasperViewer viewer= new JasperViewer(jprint,false);
+            viewer.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+            viewer.setVisible(true);
             
-        } catch (Exception e) {
+             
+            
+        } catch (JRException ex) {
+            Logger.getLogger(CobrarOrden.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
