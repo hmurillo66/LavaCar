@@ -238,7 +238,7 @@ public class Registro extends javax.swing.JFrame {
              // el executeUpdate es para subir los datos a la base de datos 
              int a =pst.executeUpdate();
              if(a>0){
-                 JOptionPane.showMessageDialog(null,"Orden agregada con exito");
+                 JOptionPane.showMessageDialog(null,"Usuario agregado con exito");
                  jtfContraseña.setText("");
                  jtfNombre.setText("");
                  jtfUsuario.setText("");
