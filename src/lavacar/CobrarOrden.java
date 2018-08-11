@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package lavacar;
-
+ 
 import java.io.File;
 import java.net.URISyntaxException;
 import java.sql.Connection;
@@ -40,18 +40,20 @@ public class CobrarOrden  extends javax.swing.JFrame {
     Connection cn = cc.conexion();
     public CobrarOrden() {
         initComponents();
-         modelo = (DefaultTableModel) jTable1.getModel();
+        modelo = (DefaultTableModel) jTable1.getModel();
         mostrarDatos("");
     }
      void mostrarDatos(String valor) {
         DefaultTableModel modelo = new DefaultTableModel();
+        
         modelo.addColumn("Numero_de_placa"); //0
         modelo.addColumn("tipo_vehiculo"); //1
-        
+        modelo.addColumn("id_cliente"); //2
         modelo.addColumn("nombe_cliente");//3
-        
-        
+        modelo.addColumn("telefono_cliente"); //4
+        modelo.addColumn("correo_cliente"); //5
         modelo.addColumn("tipo_servicio");// 6
+        
         
         jTable1.setModel(modelo);
 
@@ -65,6 +67,7 @@ public class CobrarOrden  extends javax.swing.JFrame {
                    // recordar si se puede hacer un swtch para poder buscar en toas las columnas
                    sql = "SELECT * FROM orden_de_trabajo WHERE Numero_de_placa = '"+ valor +"'";
                }
+        
         try {
             int j = 0;
             Statement st = cn.createStatement();
@@ -72,10 +75,10 @@ public class CobrarOrden  extends javax.swing.JFrame {
             while (rs.next()) {
                 for (int i = 0; i < datos.length; i++) {
                    
-                    if (i == 0 || i == 1 || i == 3 || i == 6){    
-                    datos[j] = rs.getString(i+1);
-                     j++;
-                    } 
+                   // if (i == 0 || i == 1 || i == 3 || i == 6){    
+                    datos[i] = rs.getString(i+1);
+                     //j++;
+                    //} 
                 }
                 modelo.addRow(datos);
             }
@@ -83,7 +86,7 @@ public class CobrarOrden  extends javax.swing.JFrame {
         } catch (SQLException e) {
             System.err.println(e.toString());
         }
-    }
+    } 
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -222,29 +225,31 @@ public class CobrarOrden  extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         int fila =jTable1.getSelectedRow();
         List lista = new ArrayList();
-        String placa = null;
+        String numero_placa = null;
         String tipo = null;
         String identificacion = null;
         String nombre=null;
         String telefono=null;
         String servicio=null;
-        for (int i = fila; i >=0; i--) {
-           placa=jTable1.getValueAt(i, 0).toString();
-           tipo=jTable1.getValueAt(i, 1).toString();
-           //identificacion=jTable1.getValueAt(i, 2).toString();
-           nombre=jTable1.getValueAt(i, 2).toString();
-           //telefono=jTable1.getValueAt(i, 4).toString();
-           servicio=jTable1.getValueAt(i, 3).toString();
-        }  
+        for (int i = 0; i <=0; i++) {
+            
+           numero_placa=jTable1.getValueAt(fila, 0).toString();
+           tipo=jTable1.getValueAt(fila, 1).toString();
+           identificacion=jTable1.getValueAt(fila, 2).toString();
+           nombre=jTable1.getValueAt(fila, 3).toString();
+           telefono=jTable1.getValueAt(fila, 4).toString();
+           servicio=jTable1.getValueAt(fila, 6).toString();
+           
+        }   
         try {
             ClassLoader classLoader = getClass().getClassLoader();
             File template = new File(classLoader.getResource("reportes/factura.jasper").toURI());
             JasperReport reporte =(JasperReport)JRLoader.loadObject(template);
             Map parametro = new HashMap();
-                parametro.put("numero_placa", placa);          
+                parametro.put("numero_placa", numero_placa);          
                 parametro.put("tipo",tipo);
                 parametro.put("nombre",nombre);
-                //parametro.put("telefono",telefono);
+                parametro.put("telefono",telefono);
                 parametro.put("servicio",servicio);
             //agrgar los elementos
             JasperPrint jprint= JasperFillManager.fillReport(reporte, parametro, new JREmptyDataSource());

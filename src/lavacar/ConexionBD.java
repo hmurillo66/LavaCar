@@ -8,7 +8,7 @@ package lavacar;
 import com.mysql.jdbc.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import javax.swing.JOptionPane;
+import javax.swing.JOptionPane; 
 
 /**
  *
@@ -22,6 +22,7 @@ public class ConexionBD {
         try {
             // instancia
             Class.forName("org.gjt.mm.mysql.Driver");
+            //conectar=(Connection)DriverManager.getConnection("jdbc:mysql://smmcr.net/caleb","progra2","Fidelitas");
             conectar=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/sistema_lavacar","root","");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null,"Error de conexion de la base de datos");
