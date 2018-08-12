@@ -5,11 +5,17 @@
  */
 package lavacar;
 
+
+
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.net.ServerSocket;
+import java.net.Socket;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
-import sun.security.jgss.spi.MechanismFactory;
+import static lavacar.Servidor.ss;
 
 /**
  *
@@ -18,9 +24,13 @@ import sun.security.jgss.spi.MechanismFactory;
 public class Login extends javax.swing.JFrame {
 
 ConexionBD cc = new ConexionBD();
-Connection cn = cc.conexion();
-public String user="root";
-public String pass="";
+    Connection cn = cc.conexion();
+    public String user = "root";
+    public String pass;
+    static Socket s;
+    static DataInputStream din;
+    static DataOutputStream dout;
+
     public Login() {
         initComponents();
     }
@@ -159,7 +169,8 @@ public String pass="";
             if(DatoCapturado.equals("")){
             JOptionPane.showMessageDialog(null,"El usuario no a sido registrado","Error al ingresar",JOptionPane.OK_OPTION);
             }else {
-                
+            String msgout = jtfUsuario.getText().trim();
+            dout.writeUTF(msgout);    
             MenuPrincipal menu = new MenuPrincipal ();
             menu.setVisible(true);
             dispose();
@@ -167,7 +178,14 @@ public String pass="";
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-  
+          
+//try {
+//            String msgout = jtfUsuario.getText().trim();
+//            dout.writeUTF(msgout);
+//           
+//        } catch (Exception e) {
+//            System.out.println("Error");
+//        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -204,10 +222,25 @@ public String pass="";
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
+            public void run() { 
                 new Login().setVisible(true);
             }
         });
+   try {
+            s = new Socket("127.0.0.1", 1201);
+            din = new DataInputStream(
+                    s.getInputStream());
+            dout = new DataOutputStream(
+                    s.getOutputStream());
+            String msgin = "";
+
+
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,
+           e, "Captura de error", 
+           JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

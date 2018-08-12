@@ -224,14 +224,14 @@ public class CobrarOrden  extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         int fila =jTable1.getSelectedRow();
-        List lista = new ArrayList();
+        
         String numero_placa = null;
         String tipo = null;
         String identificacion = null;
         String nombre=null;
         String telefono=null;
         String servicio=null;
-        for (int i = 0; i <=0; i++) {
+        for (int i = fila; i >=0; i--) {
             
            numero_placa=jTable1.getValueAt(fila, 0).toString();
            tipo=jTable1.getValueAt(fila, 1).toString();
@@ -240,26 +240,27 @@ public class CobrarOrden  extends javax.swing.JFrame {
            telefono=jTable1.getValueAt(fila, 4).toString();
            servicio=jTable1.getValueAt(fila, 6).toString();
            
-        }   
+        } 
+        String path="C:\\Users\\angie\\Desktop\\PROGRA 2\\Lavacar-_1_\\Lavacar (1)\\Lavacar\\src\\lavacar\\Factura.jasper";
+        JasperReport reporte;
         try {
-            ClassLoader classLoader = getClass().getClassLoader();
-            File template = new File(classLoader.getResource("reportes/factura.jasper").toURI());
-            JasperReport reporte =(JasperReport)JRLoader.loadObject(template);
+          reporte =(JasperReport)JRLoader.loadObject(path);
             Map parametro = new HashMap();
                 parametro.put("numero_placa", numero_placa);          
                 parametro.put("tipo",tipo);
+                parametro.put("identificacion",identificacion);
                 parametro.put("nombre",nombre);
                 parametro.put("telefono",telefono);
-                parametro.put("servicio",servicio);
-            //agrgar los elementos
-            JasperPrint jprint= JasperFillManager.fillReport(reporte, parametro, new JREmptyDataSource());
+                parametro.put("servicio",servicio);   
+           //agrgar los elementos
+            JasperPrint jprint= JasperFillManager.fillReport(path, parametro, new JREmptyDataSource());
+            
             //parte visualizacion  
             JasperViewer viewer= new JasperViewer(jprint,false);
             viewer.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-            viewer.setVisible(true);               
+            viewer.setVisible(true);
+            
         } catch (JRException ex) {
-            Logger.getLogger(CobrarOrden.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (URISyntaxException ex) {
             Logger.getLogger(CobrarOrden.class.getName()).log(Level.SEVERE, null, ex);
         }
 
