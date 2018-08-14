@@ -97,30 +97,30 @@ public class Servidor extends javax.swing.JFrame {
                 new Servidor().setVisible(true);
             }
         });
-//         String msgin = "";
-//        String ipCliente = "";
-//      try {
-//            ss = new ServerSocket(1201);
-//            s = ss.accept();
-//            din = new DataInputStream(
-//                    s.getInputStream());
-//            dout = new DataOutputStream(
-//                    s.getOutputStream());
-//        while (true) {
-//                msgin = din.readUTF();
-//                ipCliente = 
-//                    s.getLocalAddress().toString();
-//                jtMensaje.setText(
-//             jtMensaje.getText().trim() + "\n"+"usuario" +" "
-//             + msgin + " ip cliente: " +
-//             s.getLocalAddress().toString());
-//            }
-//
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, 
-//            e, "Captura de error", 
-//            JOptionPane.ERROR_MESSAGE);
-//        }
+         String msgin = "";
+        String ipCliente = "";
+      try {
+            ss = new ServerSocket(1201);
+            s = ss.accept();
+            din = new DataInputStream(
+                    s.getInputStream());
+            dout = new DataOutputStream(
+                    s.getOutputStream());
+        while (true) {
+                msgin = din.readUTF();
+                ipCliente = 
+                    s.getLocalAddress().toString();
+                jtMensaje.setText(
+             jtMensaje.getText().trim() + "\n"+"usuario" +" "
+             + msgin + " ip cliente: " +
+             s.getLocalAddress().toString());
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, 
+            e, "Captura de error", 
+            JOptionPane.ERROR_MESSAGE);
+        }
 
     
     }

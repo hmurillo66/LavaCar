@@ -41,14 +41,14 @@
 				<textElement>
 					<font size="14"/>
 				</textElement>
-				<text><![CDATA[Tipo]]></text>
+				<text><![CDATA[Vehiculo]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="0" y="89" width="100" height="20" uuid="a69b0167-54dc-48db-b02c-2ed7dff71f75"/>
 				<textElement>
 					<font size="14"/>
 				</textElement>
-				<text><![CDATA[Identificacion]]></text>
+				<text><![CDATA[Cliente]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="124" y="89" width="100" height="20" uuid="0c28614d-ed5f-4d39-b294-0282684985d3"/>
@@ -59,7 +59,7 @@
 				<textElement>
 					<font size="14"/>
 				</textElement>
-				<text><![CDATA[Nombre]]></text>
+				<text><![CDATA[Telefono]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="124" y="130" width="100" height="20" uuid="1f8d3859-b656-4464-90f9-6d9bfe9e92b4"/>
@@ -70,7 +70,7 @@
 				<textElement>
 					<font size="14"/>
 				</textElement>
-				<text><![CDATA[Telefono]]></text>
+				<text><![CDATA[Servicio]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="124" y="169" width="100" height="20" uuid="170fd3ba-bbe3-4ced-8766-55357fcc729a"/>
@@ -81,7 +81,7 @@
 				<textElement>
 					<font size="14"/>
 				</textElement>
-				<text><![CDATA[Servicio]]></text>
+				<text><![CDATA[Precio]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="124" y="204" width="100" height="20" uuid="fd9566e6-060e-4545-b4c3-f9626305bb1d"/>

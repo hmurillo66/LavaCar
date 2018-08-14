@@ -189,13 +189,13 @@ public class MantenimientoServicios extends javax.swing.JFrame {
                         .addGap(39, 39, 39)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(57, 57, 57)
-                        .addComponent(jbBuscar)
-                        .addGap(56, 56, 56)
+                        .addGap(108, 108, 108)
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(52, 52, 52)
+                        .addComponent(jbBuscar)
+                        .addGap(30, 30, 30)
                         .addComponent(jdMostrar)))
-                .addContainerGap(76, Short.MAX_VALUE))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

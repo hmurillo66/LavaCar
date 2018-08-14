@@ -19,9 +19,8 @@ public class Lavacar {
         menu.setVisible(true);
                
         
-        
-//        Login n =new Login ();
-//        n.setVisible(true);
+//       Login n =new Login ();
+//       n.setVisible(true);
  
 
       

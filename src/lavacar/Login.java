@@ -33,6 +33,7 @@ ConexionBD cc = new ConexionBD();
 
     public Login() {
         initComponents();
+        this.setLocationRelativeTo(this);
     }
 
     /**
@@ -66,16 +67,20 @@ ConexionBD cc = new ConexionBD();
         jLabel2.setFont(new java.awt.Font("Calibri Light", 1, 48)); // NOI18N
         jLabel2.setText("Lavacar");
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setText("Usuario");
 
+        jtfUsuario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jtfUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtfUsuarioActionPerformed(evt);
             }
         });
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("Contraseña");
 
+        jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton1.setText("Ingresar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -83,6 +88,7 @@ ConexionBD cc = new ConexionBD();
             }
         });
 
+        jButton3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton3.setText("Registrar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,34 +96,39 @@ ConexionBD cc = new ConexionBD();
             }
         });
 
+        jtfContraseña.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(113, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton3)
-                    .addComponent(jLabel2))
-                .addGap(27, 27, 27)
-                .addComponent(jButton1)
-                .addGap(43, 43, 43))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addContainerGap(102, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4))
-                .addGap(23, 23, 23)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jtfUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
-                    .addComponent(jtfContraseña))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(132, 132, 132))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4))
+                        .addGap(23, 23, 23)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jtfUsuario)
+                            .addComponent(jtfContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(97, 97, 97))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(71, 71, 71)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton3)
+                .addGap(68, 68, 68))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 190, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jtfUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -125,10 +136,10 @@ ConexionBD cc = new ConexionBD();
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jtfContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addGap(58, 58, 58)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton3))
+                    .addComponent(jButton3)
+                    .addComponent(jButton1))
                 .addGap(48, 48, 48))
         );
 
@@ -140,59 +151,58 @@ ConexionBD cc = new ConexionBD();
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jtfUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfUsuarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtfUsuarioActionPerformed
- 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        Registro r = new Registro();
+        r.setVisible(rootPaneCheckingEnabled);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-  String c1,c2;// variales que obtiene datos de los campos
-  String DatoCapturado="";// est variable captura el usuario o la key primary 
-  c1=jtfUsuario.getText();
-  c2=jtfContraseña.getText();
-  
-  String sql="SELECT * FROM usuarios WHERE usuario='"+c1+"' AND contraseña='"+c2+"'";
-  
+        String c1,c2;// variales que obtiene datos de los campos
+        String DatoCapturado="";// est variable captura el usuario o la key primary
+        c1=jtfUsuario.getText();
+        c2=jtfContraseña.getText();
+
+        String sql="SELECT * FROM usuarios WHERE usuario='"+c1+"' AND contraseña='"+c2+"'";
+
         try {
             Statement st=cn.createStatement();
             ResultSet rs=st.executeQuery(sql);
             while(rs.next()){
-            DatoCapturado=rs.getString("usuario");
+                DatoCapturado=rs.getString("usuario");
             }
             if(DatoCapturado.equals("")){
-            JOptionPane.showMessageDialog(null,"El usuario no a sido registrado","Error al ingresar",JOptionPane.OK_OPTION);
+                JOptionPane.showMessageDialog(null,"El usuario no a sido registrado","Error al ingresar",JOptionPane.OK_OPTION);
             }else {
-            String msgout = jtfUsuario.getText().trim();
-            dout.writeUTF(msgout);    
-            MenuPrincipal menu = new MenuPrincipal ();
-            menu.setVisible(true);
-            dispose();
+                System.out.println("hola");
+                String msgout = jtfUsuario.getText().trim();
+                dout.writeUTF(msgout);
+                MenuPrincipal menu = new MenuPrincipal ();
+                menu.setVisible(true);
+                dispose();
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-          
-//try {
-//            String msgout = jtfUsuario.getText().trim();
-//            dout.writeUTF(msgout);
-//           
-//        } catch (Exception e) {
-//            System.out.println("Error");
-//        }
+
+        try {
+            String msgout = jtfUsuario.getText().trim();
+            dout.writeUTF(msgout);
+
+        } catch (Exception e) {
+            System.out.println("Error");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-      Registro r = new Registro();
-      r.setVisible(rootPaneCheckingEnabled);
-    }//GEN-LAST:event_jButton3ActionPerformed
-
+    private void jtfUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtfUsuarioActionPerformed
+ 
     /**
      * @param args the command line arguments
      */

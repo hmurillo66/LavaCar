@@ -100,11 +100,10 @@ public class CobrarOrden  extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jbGenerarFactura = new javax.swing.JButton();
         jbBuscar = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
-        jButton4 = new javax.swing.JButton();
+        jbMostrarDatos = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -119,17 +118,10 @@ public class CobrarOrden  extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jButton1.setText("Generar Factura");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jbGenerarFactura.setText("Generar Factura");
+        jbGenerarFactura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        jButton2.setText("Eliminar ");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jbGenerarFacturaActionPerformed(evt);
             }
         });
 
@@ -140,10 +132,10 @@ public class CobrarOrden  extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setText("Mostrar Datos");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        jbMostrarDatos.setText("Mostrar Datos");
+        jbMostrarDatos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                jbMostrarDatosActionPerformed(evt);
             }
         });
 
@@ -161,27 +153,23 @@ public class CobrarOrden  extends javax.swing.JFrame {
             .addComponent(jScrollPane1)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton4))
+                .addComponent(jbMostrarDatos))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 63, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(318, 318, 318)
-                                .addComponent(jButton2)
-                                .addGap(29, 29, 29)
-                                .addComponent(jButton1)
-                                .addGap(42, 42, 42))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jbBuscar)
-                                .addGap(26, 26, 26)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap())))
+                        .addGap(0, 283, Short.MAX_VALUE)
+                        .addComponent(jbBuscar)
+                        .addGap(26, 26, 26)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jButton3)
                         .addGap(0, 0, Short.MAX_VALUE))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(254, 254, 254)
+                .addComponent(jbGenerarFactura)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -192,14 +180,12 @@ public class CobrarOrden  extends javax.swing.JFrame {
                     .addComponent(jbBuscar)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(19, 19, 19)
-                .addComponent(jButton4)
+                .addComponent(jbMostrarDatos)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addGap(20, 20, 20))
+                .addGap(26, 26, 26)
+                .addComponent(jbGenerarFactura)
+                .addContainerGap(68, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -222,7 +208,7 @@ public class CobrarOrden  extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jbGenerarFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGenerarFacturaActionPerformed
         int fila =jTable1.getSelectedRow();
         
         String numero_placa = null;
@@ -231,7 +217,7 @@ public class CobrarOrden  extends javax.swing.JFrame {
         String nombre=null;
         String telefono=null;
         String servicio=null;
-        for (int i = fila; i >=0; i--) {
+         for (int i = fila; i >=0; i--) {
             
            numero_placa=jTable1.getValueAt(fila, 0).toString();
            tipo=jTable1.getValueAt(fila, 1).toString();
@@ -241,7 +227,7 @@ public class CobrarOrden  extends javax.swing.JFrame {
            servicio=jTable1.getValueAt(fila, 6).toString();
            
         } 
-        String path="C:\\Users\\angie\\Desktop\\PROGRA 2\\Lavacar-_1_\\Lavacar (1)\\Lavacar\\src\\lavacar\\Factura.jasper";
+        String path="C:\\Users\\hanse\\Desktop\\progra2\\Lavacar-_1_\\Lavacar (1)\\Lavacar\\src\\lavacar\\Factura.jasper";
         JasperReport reporte;
         try {
           reporte =(JasperReport)JRLoader.loadObject(path);
@@ -264,9 +250,9 @@ public class CobrarOrden  extends javax.swing.JFrame {
             Logger.getLogger(CobrarOrden.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }                                        
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
  int fila =jTable1.getSelectedRow();
       if(fila>=0){
           try {
@@ -281,12 +267,12 @@ public class CobrarOrden  extends javax.swing.JFrame {
       }else {
       JOptionPane.showMessageDialog(null," No seleccionado ninguna orden , porfavor seleciones alguna orden de la tabla ");
       }
-               
-    }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_jbGenerarFacturaActionPerformed
+
+    private void jbMostrarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbMostrarDatosActionPerformed
         mostrarDatos("");
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_jbMostrarDatosActionPerformed
 
     private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
         mostrarDatos(jTextField1.getText());
@@ -334,14 +320,13 @@ public class CobrarOrden  extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private static javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JButton jbBuscar;
+    private javax.swing.JButton jbGenerarFactura;
+    private javax.swing.JButton jbMostrarDatos;
     // End of variables declaration//GEN-END:variables
 }

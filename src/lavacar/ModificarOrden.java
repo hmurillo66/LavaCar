@@ -16,29 +16,24 @@ import javax.swing.JOptionPane;
 public class ModificarOrden extends javax.swing.JFrame {
 
 
-    private String placa, tipo, idcliente, nombre, telefono, correo, tiposervicio;;
+    private String placa, tipo, idcliente, tiposervicio;;
     
     public ModificarOrden() {
         initComponents();
+        this.setLocationRelativeTo(this);
     }
 
     // usar este metodo para recibir el valor de placa asignado en la lista de ordenes para ponerlo en los txt field de este jframe
-        public void setDatos(String placa, String tipo, String idcliente, String nombre, String telefono, String correo, String tiposervicio) {
+        public void setDatos(String placa, String tipo, String idcliente, String tiposervicio) {
         this.placa = placa;
         this.tipo = tipo;
         this.idcliente = idcliente;
-        this.nombre = nombre;
-        this.telefono = telefono;
-        this.correo = correo;
         this.tiposervicio = tiposervicio;
         
         // enviamos el registro al txt field
         jtfPlacaVehiculo.setText(placa);
         jcbTipoVehiculo.setSelectedItem(tipo);
         jtfIdCliente.setText(idcliente);
-        jtfNombreCliente.setText(nombre);
-        jtfTelefonoCliente.setText(telefono);
-        jtfCorreoCliente.setText(correo);
         jcbTipoServicio.setSelectedItem(tiposervicio);
         
     }
@@ -53,25 +48,65 @@ public class ModificarOrden extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jtfTelefonoCliente = new javax.swing.JTextField();
+        jpSuperior = new javax.swing.JPanel();
+        jlHora = new javax.swing.JLabel();
+        jbMostraMenu = new javax.swing.JButton();
         jbGenerarOT = new javax.swing.JButton();
-        jtfCorreoCliente = new javax.swing.JTextField();
-        jcbTipoServicio = new javax.swing.JComboBox<>();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        jpSuperior1 = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
         jtfPlacaVehiculo = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jcbTipoVehiculo = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
+        jcbTipoVehiculo = new javax.swing.JComboBox<>();
+        jLabel3 = new javax.swing.JLabel();
         jtfIdCliente = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jcbTipoServicio = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
-        jtfNombreCliente = new javax.swing.JTextField();
-        jbAtras = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jpSuperior.setBackground(new java.awt.Color(0, 153, 153));
 
+        jlHora.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jlHora.setForeground(new java.awt.Color(255, 255, 255));
+
+        jbMostraMenu.setBackground(new java.awt.Color(0, 153, 153));
+        jbMostraMenu.setForeground(new java.awt.Color(0, 153, 153));
+        jbMostraMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/menu.png"))); // NOI18N
+        jbMostraMenu.setBorder(null);
+        jbMostraMenu.setContentAreaFilled(false);
+        jbMostraMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbMostraMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbMostraMenuActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jpSuperiorLayout = new javax.swing.GroupLayout(jpSuperior);
+        jpSuperior.setLayout(jpSuperiorLayout);
+        jpSuperiorLayout.setHorizontalGroup(
+            jpSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpSuperiorLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jbMostraMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(694, 694, 694)
+                .addComponent(jlHora, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jpSuperiorLayout.setVerticalGroup(
+            jpSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpSuperiorLayout.createSequentialGroup()
+                .addGroup(jpSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpSuperiorLayout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(jlHora, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jpSuperiorLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jbMostraMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        jbGenerarOT.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jbGenerarOT.setText("Modificar orden de trabajo");
         jbGenerarOT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,107 +114,101 @@ public class ModificarOrden extends javax.swing.JFrame {
             }
         });
 
-        jcbTipoServicio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Lavado", "Aspirado", "Encerado", "Lavado y apirado", "Lavado aspirado y encerado" }));
+        jpSuperior1.setBackground(new java.awt.Color(0, 153, 153));
 
-        jLabel7.setText("Tipo de servicio:");
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel12.setText("Modificar Orden");
 
-        jLabel6.setText("Correo eléctronico de cliente:");
+        javax.swing.GroupLayout jpSuperior1Layout = new javax.swing.GroupLayout(jpSuperior1);
+        jpSuperior1.setLayout(jpSuperior1Layout);
+        jpSuperior1Layout.setHorizontalGroup(
+            jpSuperior1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpSuperior1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(298, Short.MAX_VALUE))
+        );
+        jpSuperior1Layout.setVerticalGroup(
+            jpSuperior1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpSuperior1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
+                .addContainerGap())
+        );
 
-        jLabel5.setText("Teléfono de cliente:");
+        jtfPlacaVehiculo.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
-        jLabel4.setText("Nombre de cliente:");
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel2.setText("Tipo de vehiculo:");
 
-        jtfPlacaVehiculo.setEnabled(false);
-
-        jLabel3.setText("Identificación de cliente:");
-
+        jcbTipoVehiculo.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jcbTipoVehiculo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Sedan", "SUV", "4x4", "Motocicleta", "Camión" }));
         jcbTipoVehiculo.setToolTipText("");
 
-        jLabel2.setText("Tipo de vehiculo:");
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel3.setText("Identificación de cliente:");
 
+        jtfIdCliente.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel7.setText("Tipo de servicio:");
+
+        jcbTipoServicio.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jcbTipoServicio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Lavado", "Aspirado", "Encerado", "Lavado y apirado", "Lavado aspirado y encerado" }));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel1.setText("Número de placa de vehiculo:");
-
-        jtfNombreCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtfNombreClienteActionPerformed(evt);
-            }
-        });
-
-        jbAtras.setText("Atrás");
-        jbAtras.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbAtrasActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addComponent(jpSuperior1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(65, 65, 65)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(241, 241, 241)
+                        .addComponent(jbGenerarOT))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel7)
                             .addComponent(jLabel2)
                             .addComponent(jLabel1)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7))
-                        .addGap(47, 47, 47)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jcbTipoVehiculo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jtfPlacaVehiculo)
-                            .addComponent(jtfIdCliente)
-                            .addComponent(jtfNombreCliente)
-                            .addComponent(jtfTelefonoCliente)
-                            .addComponent(jtfCorreoCliente)
-                            .addComponent(jcbTipoServicio, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jbAtras))
-                .addGap(0, 58, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(226, 226, 226)
-                .addComponent(jbGenerarOT)
+                            .addComponent(jLabel3))
+                        .addGap(37, 37, 37)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jtfPlacaVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jcbTipoVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtfIdCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jcbTipoServicio, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jbAtras)
-                .addGap(22, 22, 22)
+                .addComponent(jpSuperior1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(59, 59, 59)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jtfPlacaVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jcbTipoVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jtfIdCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(jtfNombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(jtfPlacaVehiculo, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jtfTelefonoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(jcbTipoVehiculo, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jtfCorreoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(jtfIdCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jcbTipoServicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(51, 51, 51)
+                    .addComponent(jcbTipoServicio, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+                    .addComponent(jLabel7))
+                .addGap(61, 61, 61)
                 .addComponent(jbGenerarOT)
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addGap(37, 37, 37))
         );
 
         pack();
@@ -194,11 +223,8 @@ public class ModificarOrden extends javax.swing.JFrame {
         try{
             // creamos una variable tipo prepared statement que almacenara un UPDATE que debera sobreescribir donde se hace referencia al WHERE
             // nombre de las columnas
-            PreparedStatement pst = cn.prepareStatement("UPDATE orden_de_trabajo SET tipo_vehiculo = '"+jcbTipoVehiculo.getSelectedItem()+"'"
+            PreparedStatement pst = cn.prepareStatement("UPDATE orden_de_trabajo SET vehiculo = '"+jcbTipoVehiculo.getSelectedItem()+"'"
                     + ", id_cliente = '"+jtfIdCliente.getText()+"'"
-                    + ", nombe_cliente = '"+jtfNombreCliente.getText()+"'" 
-                    + ", telefono_cliente = '"+jtfTelefonoCliente.getText()+"'"
-                    + ", correo_cliente = '"+jtfCorreoCliente.getText()+"'"
                     + ", tipo_servicio = '"+jcbTipoServicio.getSelectedItem()+"'"
                     + "WHERE Numero_de_placa ='"+jtfPlacaVehiculo.getText()+"'");
              
@@ -209,9 +235,7 @@ public class ModificarOrden extends javax.swing.JFrame {
 
                 JOptionPane.showMessageDialog(null,"Orden modificada con éxito");
                 dispose();
-                ListaDeOrdenes lo = new ListaDeOrdenes();
-                lo.setVisible(true);
-
+                
             }
             else{
                 JOptionPane.showMessageDialog(null,"Error al modificar");
@@ -221,16 +245,9 @@ public class ModificarOrden extends javax.swing.JFrame {
         }        // TODO
     }//GEN-LAST:event_jbGenerarOTActionPerformed
 
-    private void jtfNombreClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfNombreClienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtfNombreClienteActionPerformed
-
-    private void jbAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAtrasActionPerformed
-
-        MenuPrincipal menu = new MenuPrincipal ();
-        menu.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jbAtrasActionPerformed
+    private void jbMostraMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbMostraMenuActionPerformed
+        
+    }//GEN-LAST:event_jbMostraMenuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -269,20 +286,18 @@ public class ModificarOrden extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JButton jbAtras;
     private javax.swing.JButton jbGenerarOT;
+    private javax.swing.JButton jbMostraMenu;
     private javax.swing.JComboBox<String> jcbTipoServicio;
     private javax.swing.JComboBox<String> jcbTipoVehiculo;
-    private javax.swing.JTextField jtfCorreoCliente;
+    private javax.swing.JLabel jlHora;
+    private javax.swing.JPanel jpSuperior;
+    private javax.swing.JPanel jpSuperior1;
     private javax.swing.JTextField jtfIdCliente;
-    private javax.swing.JTextField jtfNombreCliente;
     private javax.swing.JTextField jtfPlacaVehiculo;
-    private javax.swing.JTextField jtfTelefonoCliente;
     // End of variables declaration//GEN-END:variables
 }
